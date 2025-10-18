@@ -1,0 +1,1 @@
+console.log("Bienvenido al control de acceso urbano desde un archivo externo");
