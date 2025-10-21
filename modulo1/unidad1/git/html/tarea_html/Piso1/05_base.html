@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de acceso — Urbanizacion</title>
+</head>
+<body>
+  <header>
+    <h1>Control de acceso — Urbanizacion</h1>
+    <p>Menu de opciones</p>
+  </header>
+  <nav>
+    <ul>
+      <li><a href="01_base.html">Inicio</a></li>
+      <li><a href="02_base.html">Municipio de Quito</a></li>
+      <li><a href="03_base.html">Gobierno del Ecuador</a></li>
+      <li><a href="04_base.html">Control de acceso inteligente</a></li>
+      <li><a href="#urbanizacion">Urbanizaciones</a></li>
+    </ul>
+  </nav>
+     <main id="Urbanizacion">
+    <section id="flex">
+      <h2>Urbanizaciones de Quito</h2>
+      <p>
+    <img width="300" height="200" src="https://http2.mlstatic.com/D_NQ_NP_2X_967519-MEC85567842252_062025-N.webp">
+      </p>
+        <p> Tabla de urbanizacion 1990</p>
+    <table border="1">
+        <tr bgcolor="#000FF">
+            <th>
+                Poblacion urbana
+            </th>
+            <th>
+                Poblacion rural
+            </th>
+            <th>
+                Tasa crecimiento anual
+            </th>
+        </tr>
+        <tr>
+            <td>
+                1.100.847
+            </td>
+            <td>
+                308.998
+            </td>
+            <td>
+                No hay registros
+            </td>
+        </tr>
+    </table>
+    <p>  Tabla de urbanizacion 2001/2021 </p>
+    <table border="1">
+        <tr bgcolor="#000FF">
+            <th>
+                Año
+            </th>
+            <th>
+                Poblacion urbana
+            </th>
+            <th>
+                Poblacion rural
+            </th>
+            <th>
+                Tasa crecimiento anual
+            </th>
+        </tr>
+        <tr>
+            <td>
+                2001
+            </td>
+            <td>
+                1.399.378
+            </td>
+            <td>
+                440.475
+            </td>
+            <td>
+                2.77%
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2010
+            </td>
+            <td>
+                1.607.734
+            </td>
+            <td>
+                631.457
+            </td>
+            <td>
+                2.41%
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2020
+            </td>
+            <td>
+                2.011.388
+            </td>
+            <td>
+                770.253
+            </td>
+            <td>
+                2.42%
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                Agosto 2020
+            </td>
+            <td>
+                770.253
+            </td>
+            <td>
+                2.42%
+            </td>
+        </tr>
+        <tr>
+            <td rowspan="2">
+                2021
+            </td>
+            <td>
+                2.037.612
+            </td>
+            <td>
+                814.562
+            </td>
+            <td>
+                No hay datos
+            </td>
+        </tr>
+        <tr>
+            <td>
+                2.037.612
+            </td>
+            <td>
+                814.562
+            </td>
+            <td>
+                No hay datos
+            </td>
+        </tr>
+    </table>
+
+    <hr>
+      <p> Formulario de Urbanizacion </p>
+      <form action="procesar" method="post">
+        <label for="nombre">nombre</label>
+        <input type="text" id="nombre" name="nombre">
+        <label for="correo">Correo Electronico</label>
+        <input type="email" id="correo" name="correo">
+        <label for="fecha">Fecha de nacimiento</label>
+        <input type="date" id="fecha" name="fecha">
+        <input type="checkbox" id="acepto" name="acepto" required>
+        <label for="acepto">Acepto los terminos y condiciones</label>
+        <input type="submit" value="Enviar">
+      </form>  
+      <p><a href="#urbanizacion">↑ Volver al inicio</a></p>
+    </section>
+  </main>
+
+
+  <footer id="contacto">
+    <p>Contacto: <a href="https://www.gob.ec/tramites/buscar?search_api_fulltext=URBANIZACI%C3%93N">https://www.gob.ec/tramites/buscar?search_api_fulltext=URBANIZACI%C3%93N</a></p>
+  </footer>
+
+
+</body>
+</html>
