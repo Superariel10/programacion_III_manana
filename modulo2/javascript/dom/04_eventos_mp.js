@@ -7,3 +7,7 @@ document.getElementById('crear').addEventListener('click',()=>{
 document.getElementById('eliminar').addEventListener('click',()=>{
     if (parrafo) parrafo.remove();
 });
+
+function saludar(){
+    alert("Hola desde la funcion del control de acceso")
+}
