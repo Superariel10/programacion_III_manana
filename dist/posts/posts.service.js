@@ -18,6 +18,7 @@ const typeorm_1 = require("@nestjs/typeorm");
 const typeorm_2 = require("typeorm");
 const post_entity_1 = require("./post.entity");
 const categories_entity_1 = require("../categories/categories.entity");
+const nestjs_typeorm_paginate_1 = require("nestjs-typeorm-paginate");
 let PostsService = class PostsService {
     postRepository;
     categoryRepository;
@@ -36,8 +37,22 @@ let PostsService = class PostsService {
         });
         return this.postRepository.save(post);
     }
-    findAll() {
-        return this.postRepository.find({ relations: ['category'] });
+    async findAll(options) {
+        const { search, searchField, sortBy, sortOrder } = options;
+        const queryBuilder = this.postRepository.createQueryBuilder('post');
+        queryBuilder.leftJoinAndSelect('post.category', 'category');
+        const allowedSearchFields = ['title', 'content'];
+        const allowedSortFields = ['id', 'title'];
+        if (search && searchField && allowedSearchFields.includes(searchField)) {
+            queryBuilder.andWhere(`LOWER(post.${searchField}) LIKE :search`, { search: `%${search.toLowerCase()}%` });
+        }
+        const orderField = sortBy && allowedSortFields.includes(sortBy) ? sortBy : 'id';
+        const orderDirection = sortOrder === 'DESC' ? 'DESC' : 'ASC';
+        queryBuilder.orderBy(`post.${orderField}`, orderDirection);
+        return (0, nestjs_typeorm_paginate_1.paginate)(queryBuilder, {
+            page: options.page,
+            limit: options.limit,
+        });
     }
     findOne(id) {
         return this.postRepository.findOne({ where: { id }, relations: ['category'] });

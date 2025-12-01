@@ -3,13 +3,21 @@ import { Post } from './post.entity';
 import { CreatePostDto } from './dto/create-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { Category } from '../categories/categories.entity';
+import { IPaginationOptions, Pagination } from 'nestjs-typeorm-paginate';
+interface PostPaginationOptions extends IPaginationOptions {
+    search?: string;
+    searchField?: string;
+    sortBy?: string;
+    sortOrder?: 'ASC' | 'DESC';
+}
 export declare class PostsService {
     private readonly postRepository;
     private readonly categoryRepository;
     constructor(postRepository: Repository<Post>, categoryRepository: Repository<Category>);
     create(createPostDto: CreatePostDto): Promise<Post>;
-    findAll(): Promise<Post[]>;
+    findAll(options: PostPaginationOptions): Promise<Pagination<Post>>;
     findOne(id: string): Promise<Post | null>;
     update(id: string, updatePostDto: UpdatePostDto): Promise<Post>;
     remove(id: string): Promise<Post>;
 }
+export {};
