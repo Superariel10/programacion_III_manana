@@ -1,0 +1,26 @@
+.texto_primario {
+    color: #4764d7;
+    background-color: green;
+    font-size: 24 px;
+    font-family: Verdadna, Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    line-height: 1.7;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    white-space: nowrap;
+}
+.texto_secundario{
+    color: #f54927;
+    background-color: yellow;
+    font-size: 14 px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: normal;
+    line-height: 1;
+    text-decoration: line-through;
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    white-space: nowrap;
+}
