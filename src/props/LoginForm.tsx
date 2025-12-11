@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function LoginForm(props:any) {
+export default function LoginForm(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 

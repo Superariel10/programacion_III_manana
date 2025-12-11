@@ -7,6 +7,7 @@ export default function ColorBox() {
     <>
       <div style={{ width: 100, height: 100, backgroundColor: color }}></div>
       <button onClick={() => setColor('salmon')}>Cambiar color</button>
+      <button onClick={() => setColor('blue')}>Color Azul</button>
     </>
   );
 }
