@@ -1,11 +1,10 @@
-import { IsNumber } from 'class-validator';
 import { useState } from 'react';
 
 export default function SimpleForm() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [num3, setNum3] = useState(0);
-  const handleSubmit = (e) => {
+  const handleSubmit = (e:any) => {
     e.preventDefault();
     alert(`Resultado, ${(num1+num2+num3)/3}`);
   };

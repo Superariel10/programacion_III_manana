@@ -25,11 +25,34 @@ import LanguageSwitcher from './useState/LanguageSwitcher'
 import LanguageSwitcher_mp from './useState/LanguageSwitcher_mp'
 import MultiSwitch from './useState/MultiSwitch'
 import MultiSwitch_mp from './useState/MultiSwitch_mp'
+import DynamicColor from './useState/DynamicColor'
+import ClickHistory from './useState/ClickHistory'
+import LogEffect from './useEffect/LogEffect'
+import FetchUser from './useEffect/FetchUser'
+import Clock from './useEffect/Clock'
+import ScrollLogger from './useEffect/ScrollLonger'
+import DynamicTitle from './useEffect/DynamicTitle'
+import PersistCounter from './useEffect/PersistCounter'
+import { LanguageContext } from './useContext/LanguageContext'
+import LanguageToggle from './useContext/LanguageToggle'
+import { useState } from 'react'
+import { LoginContext } from './useContext/LoginContext'
+import LoginStatus from './useContext/LoginStatus';
 
 function App() {
   const userData = { name: "Carlos", apellido: "Garcia", age: 30, direccion: "10 de Agosto", telefono: "0995678839" };
+  const [lang, setLang] = useState('es');
+  const toggleLanguage = () => setLang(prev => (prev === 'es' ? 'en' : 'es'));
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const toggleLogin = () => setIsLoggedIn(prev => !prev);
   return (
     <>
+      <LanguageContext.Provider value={{ lang, toggleLanguage }}>
+      <LanguageToggle />
+      </LanguageContext.Provider>
+      <LoginContext.Provider value={{ isLoggedIn, toggleLogin }}>
+      <LoginStatus />
+      </LoginContext.Provider>
       <Greeting name="Francisco" />
       <Greeting name="Ana" />
       <UserCard user={userData} />
@@ -58,7 +81,16 @@ function App() {
       <LanguageSwitcher_mp/>
       <MultiSwitch/>
       <MultiSwitch_mp/>
+      <DynamicColor/>
+      <ClickHistory/>
+      <LogEffect/>
+      <FetchUser/>
+      <Clock/>
+      <ScrollLogger/>
+      <DynamicTitle/>
+      <PersistCounter/>
     </>
   );
 }
 export default App;
+
