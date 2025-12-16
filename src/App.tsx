@@ -38,6 +38,11 @@ import LanguageToggle from './useContext/LanguageToggle'
 import { useState } from 'react'
 import { LoginContext } from './useContext/LoginContext'
 import LoginStatus from './useContext/LoginStatus';
+import FocoAutomatico from './useRef/FocoAutomatico'
+import CirculoColorido from './useRef/CirculoColorido'
+import ScrollDemo from './useRef/ScrollDemo'
+import ReproductorSonido from './useRef/ReproductorSonido'
+import MoverCaja from './useRef/MoverCaja'
 
 function App() {
   const userData = { name: "Carlos", apellido: "Garcia", age: 30, direccion: "10 de Agosto", telefono: "0995678839" };
@@ -89,6 +94,11 @@ function App() {
       <ScrollLogger/>
       <DynamicTitle/>
       <PersistCounter/>
+      <FocoAutomatico/>
+      <CirculoColorido/>
+      <ScrollDemo/>
+      <ReproductorSonido/>
+      <MoverCaja/>
     </>
   );
 }
