@@ -43,13 +43,29 @@ import CirculoColorido from './useRef/CirculoColorido'
 import ScrollDemo from './useRef/ScrollDemo'
 import ReproductorSonido from './useRef/ReproductorSonido'
 import MoverCaja from './useRef/MoverCaja'
-
+import ExpensiveCalc from './useMemo/ExpensiveCalc'
+import FiltroLista from './useMemo/FiltroLista'
+import SafeFetch from './useEffect/SafeFetch'
+import TablaOrdenada from './useMemo/TablaOrdenada'
+import PrimosMemo from './useMemo/PrimosMemo'
+import ContadorLetras from './useMemo/ContadorLetras'
+import Contador from './useCallBack/Contador'
+import Padre from './useCallBack/Padre'
+import Saludo from './useCallBack/Saludo'
+import BotonMemoProps from './useCallBack/BotonMemoProps'
+import Lista from "./useCallBack/Lista";
+import ContadorReducer from './useReducer/ContadorReducer'
+import FormularioReducer from './useReducer/FormularioReducer'
+import ListaReducer from './useReducer/ListaReducer'
 function App() {
   const userData = { name: "Carlos", apellido: "Garcia", age: 30, direccion: "10 de Agosto", telefono: "0995678839" };
   const [lang, setLang] = useState('es');
   const toggleLanguage = () => setLang(prev => (prev === 'es' ? 'en' : 'es'));
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const toggleLogin = () => setIsLoggedIn(prev => !prev);
+  const elementos = ["uno", "dos", "tres", "cuatro"];
+  const [count, setCount] = useState(0);
+  const handleClick = () => setCount(count + 1);
   return (
     <>
       <LanguageContext.Provider value={{ lang, toggleLanguage }}>
@@ -92,6 +108,7 @@ function App() {
       <FetchUser/>
       <Clock/>
       <ScrollLogger/>
+      <SafeFetch/>
       <DynamicTitle/>
       <PersistCounter/>
       <FocoAutomatico/>
@@ -99,6 +116,22 @@ function App() {
       <ScrollDemo/>
       <ReproductorSonido/>
       <MoverCaja/>
+      <ExpensiveCalc/>
+      <FiltroLista/>
+      <TablaOrdenada/>
+      <PrimosMemo/>
+      <ContadorLetras/>
+      <Contador/>
+      <Padre/>
+      <Saludo/>
+      <>
+      <h2>Ejemplo de Lista</h2>
+      <Lista items={elementos} />
+      </>
+      <BotonMemoProps onClick={handleClick} />
+      <ContadorReducer/>
+      <FormularioReducer/>
+      <ListaReducer/>
     </>
   );
 }
