@@ -57,6 +57,16 @@ import Lista from "./useCallBack/Lista";
 import ContadorReducer from './useReducer/ContadorReducer'
 import FormularioReducer from './useReducer/FormularioReducer'
 import ListaReducer from './useReducer/ListaReducer'
+import Area_triangulo from './useState/Area_triangulo'
+import Horastrabajadas from './useState/Horastrabajadas'
+import CampoTexto from './useId/campoTexto'
+import UseIdHook from './useId/useIdHook'
+import LoginCampos from './useId/LoginCampos'
+import ListaInputs from './useId/ListaInputs'
+import { BuscadorUseTransition } from './useTransition/BuscadorUseTransition'
+import { TabsUseTransition } from './useTransition/tabsUseTransition'
+import { GaleriaDiferida } from './useTransition/GaleriaDiferida'
+import Mayor3numeros from './useState/mayor3numeros'
 function App() {
   const userData = { name: "Carlos", apellido: "Garcia", age: 30, direccion: "10 de Agosto", telefono: "0995678839" };
   const [lang, setLang] = useState('es');
@@ -132,6 +142,16 @@ function App() {
       <ContadorReducer/>
       <FormularioReducer/>
       <ListaReducer/>
+      <Area_triangulo/>
+      <Horastrabajadas/>
+      <CampoTexto/>
+      <UseIdHook/>
+      <LoginCampos/>
+      <ListaInputs/>
+      <BuscadorUseTransition/>
+      <TabsUseTransition/>
+      <GaleriaDiferida/>
+      <Mayor3numeros/>
     </>
   );
 }

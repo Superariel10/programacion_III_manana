@@ -6,7 +6,7 @@ export default function Suma() {
   const [num2, setNum2] = useState(0);
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Resuktado, ${num1+num2}`);
+    alert(`Resultado, ${num1+num2}`);
   };
 
   return (
