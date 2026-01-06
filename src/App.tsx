@@ -67,6 +67,20 @@ import { BuscadorUseTransition } from './useTransition/BuscadorUseTransition'
 import { TabsUseTransition } from './useTransition/tabsUseTransition'
 import { GaleriaDiferida } from './useTransition/GaleriaDiferida'
 import Mayor3numeros from './useState/mayor3numeros'
+import BusquedaDiferida from './useDeferredValue/BusquedaDiferida'
+import TablaDiferida from './useDeferredValue/TablaDiferida'
+import ListaOrdenada from './useDeferredValue/ListaOrdenada'
+import GraficoDiferido from './useDeferredValue/GraficoDiferido'
+import ValidacionEmail from './useDeferredValue/ValidacionEmail'
+import { ControladorPanel } from './useImperativeHandle/ControladorPanel'
+import { PadreConInput } from './useImperativeHandle/PadreConInput'
+import { PaginaScroll } from './useImperativeHandle/PaginaScroll'
+import { PanelContadorConRef } from './useImperativeHandle/PanelContadorConRef'
+import { CentradoVerticalTS } from './useLayoutEffect/CentradoVerticalTS'
+import MedicionCaja from './useLayoutEffect/MedicionCaja'
+import MostrarSinParpadeoTS from './useLayoutEffect/MostrarSinParpadeoTs'
+import MostrarSinParpadeoTS2 from './useLayoutEffect/MostrarSinParpadeoTS2'
+import { ScrollAutoTS } from './useLayoutEffect/ScrollAutoTS'
 function App() {
   const userData = { name: "Carlos", apellido: "Garcia", age: 30, direccion: "10 de Agosto", telefono: "0995678839" };
   const [lang, setLang] = useState('es');
@@ -152,6 +166,21 @@ function App() {
       <TabsUseTransition/>
       <GaleriaDiferida/>
       <Mayor3numeros/>
+      <BusquedaDiferida/>
+      <TablaDiferida/>
+      <ListaOrdenada/>
+      <GraficoDiferido/>
+      <ValidacionEmail/>
+      <ControladorPanel/>
+      <FormularioReducer/>
+      <PadreConInput/>
+      <PaginaScroll/>
+      <PanelContadorConRef/>
+      <CentradoVerticalTS/>
+      <MedicionCaja/>
+      <MostrarSinParpadeoTS/>
+      <MostrarSinParpadeoTS2/>
+      <ScrollAutoTS/>
     </>
   );
 }
