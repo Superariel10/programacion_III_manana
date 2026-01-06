@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import AppRoutes from './AppRoutes';
+import AppRoutes from './Approutes';
 
 export default function App() {
   return (
