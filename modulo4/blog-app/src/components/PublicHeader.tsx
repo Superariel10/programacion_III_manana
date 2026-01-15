@@ -1,12 +1,33 @@
-import { AppBar, Toolbar, Typography, Box } from "@mui/material";
+import { AppBar, Toolbar, Typography, Box, Button } from "@mui/material";
+import type { JSX } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
-export default function PublicHeader() {
+export function PublicHeader(): JSX.Element {
   return (
-    <AppBar position="static">
-      <Toolbar sx={{ justifyContent: "space-between" }}>
-        <Box display="flex" alignItems="center" gap={2}>
-          <img src="https://static.vecteezy.com/system/resources/thumbnails/022/791/223/small/blog-site-blogger-png.png" alt="logo" width="32" />
-          <Typography variant="h6">BlogApp</Typography>
+    <AppBar
+      position="fixed"
+      elevation={1}
+      sx={{ left: 0, right: 0, top: 0 }}
+    >
+      <Toolbar disableGutters sx={{ minHeight: 64 }}>
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            px: 2, /* sin espacio externo; solo padding interno controlado */
+          }}
+        >
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            Blog App
+          </Typography>
+
+          <Button color="inherit" component={RouterLink} to="/">
+            Inicio
+          </Button>
+          <Button color="inherit" component={RouterLink} to="/dashboard/posts">
+            Dashboard
+          </Button>
         </Box>
       </Toolbar>
     </AppBar>

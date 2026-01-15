@@ -1,4 +1,4 @@
-import { PostList } from "../pages/private/Posts";
+/*import { PostList } from "../pages/private/Posts";
 import { Categories } from "../pages/private/Categories";
 import { Users } from "../pages/private/Users";
 import { DashboardLayout } from "../layouts/DashboardLayout";
@@ -12,4 +12,4 @@ export const privateRoutes: RouteObject = {
     { path: "categories", element: <Categories /> },
     { path: "users", element: <Users /> },
   ],
-};
+};*/

@@ -1,16 +1,24 @@
-import { Box } from "@mui/material";
-import PublicHeader from "../components/PublicHeader";
-import PublicFooter from "../components/PublicFooter";
+import { Box, Toolbar } from "@mui/material";
+import {PublicHeader} from "../components/PublicHeader";
+import {PublicFooter} from "../components/PublicFooter";
 import { Outlet } from "react-router-dom";
 import type { JSX } from "react";
 
+const FOOTER_HEIGHT = 56;
+
 export default function PublicLayout(): JSX.Element {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
+    <Box minHeight="100vh">
       <PublicHeader />
-      <Box flex="1">
+
+      {/* Spacer real del AppBar (header fijo) */}
+      <Toolbar />
+
+      {/* Contenido con espacio inferior para el footer fijo */}
+      <Box sx={{ pb: `${FOOTER_HEIGHT}px` }}>
         <Outlet />
       </Box>
+
       <PublicFooter />
     </Box>
   );

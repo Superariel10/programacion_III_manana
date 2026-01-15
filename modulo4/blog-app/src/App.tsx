@@ -1,10 +1,11 @@
+/*import type { JSX } from 'react'
 import './App.css'
 import BasicButtons from './lab/BasicButtons'
 import BasicTable from './lab/BasicTable'
 import ColorSwitches from './lab/ColorSwitches'
 import TestMUI from './lab/TestMUI'
 
-function App() {
+export default function App(): JSX.Element {
 
   return (
     <>
@@ -14,6 +15,13 @@ function App() {
       <TestMUI/>
     </>
   )
+}*/
+import { useRoutes } from "react-router-dom";
+import { appRoutes } from "./routes";
+import type { JSX } from "react";
+
+export default function App(): JSX.Element {
+  const routes = useRoutes(appRoutes);
+  return <>{routes}</>;
 }
 
-export default App
