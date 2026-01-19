@@ -2,13 +2,15 @@ import { createContext, useContext, useMemo, useState } from "react";
 import type { ReactNode } from "react";
 import { loginApi, registerApi } from "../services/auth.service";
 
-type User = {
-  username: string;
+export type AuthUser = {
+  id?: string;
   email?: string;
+  username?: string;
+  role?: string;
 };
 
 type AuthContextType = {
-  user: User | null;
+  user: AuthUser | null;
   token: string | null;
   login: (payload: { username: string; password: string }) => Promise<void>;
   register: (payload: { username: string; email: string; password: string }) => Promise<void>;
@@ -18,7 +20,7 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(() => {
+  const [user, setUser] = useState<AuthUser | null>(() => {
     const raw = localStorage.getItem("auth_user");
     return raw ? JSON.parse(raw) : null;
   });
