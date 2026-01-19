@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var _11_herencia_mp_1 = require("./11_herencia_mp");
+var miCarro = new _11_herencia_mp_1.Vehiculo('Chevrolet', 'BeMax');
+console.log(miCarro.marca);
+console.log(miCarro.tipo);
+miCarro.moverse();
+var miMotocicleta = new _11_herencia_mp_1.Moto('Susuki', 'Plateado');
+console.log(miMotocicleta.marca);
+console.log(miMotocicleta.tipo);
+miMotocicleta.moverse();
