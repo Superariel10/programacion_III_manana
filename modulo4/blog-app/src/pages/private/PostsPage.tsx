@@ -25,6 +25,9 @@ import {
   import { type PostDto, createPost, deletePost, getPosts, updatePost } from "../../services/posts.service";
   import PostFormDialog from "../../components/posts/PostFormDialog";
   import { useCategoriesOptions } from "../../hooks/useCategoriesOptions";
+import ConfirmDialog from "../../components/common/ConfirmDialog";
+import { getApiErrorMessage } from "../../utils/getApiErrorMessage";
+import { useUi } from "../../context/UiContext";
   
   function useDebouncedValue<T>(value: T, delayMs: number): T {
     const [debounced, setDebounced] = useState(value);
@@ -37,7 +40,7 @@ import {
   
   export default function PostsPage(): JSX.Element {
     const [sp, setSp] = useSearchParams();
-  
+    const { notify } = useUi();
     const pageParam = Number(sp.get("page") || "1");
     const limitParam = Number(sp.get("limit") || "10");
     const searchParam = sp.get("search") || "";
@@ -58,6 +61,9 @@ import {
     const [open, setOpen] = useState(false);
     const [mode, setMode] = useState<"create" | "edit">("create");
     const [current, setCurrent] = useState<PostDto | null>(null);
+
+    const [confirmOpen, setConfirmOpen] = useState(false);
+    const [toDelete, setToDelete] = useState<PostDto | null>(null);
   
     const queryKey = useMemo(
       () => ({
@@ -133,23 +139,31 @@ import {
       }
     };
   
-    const onDelete = async (id: string) => {
-      try {
-        setError(null);
-        await deletePost(id);
-        await load();
-      } catch {
-        setError("No se pudo eliminar el post.");
-      }
-    };
-  
     const categoryName = (p: PostDto) => {
       const id = p.categoryId || p.category?.id || "";
       if (!id) return "Sin categoría";
       const found = categories.find((c) => c.id === id);
       return found?.name || p.category?.name || "Categoría";
     };
-  
+ 
+    const askDelete = (c: PostDto) => {
+      setToDelete(c);
+      setConfirmOpen(true);
+    };
+
+    const confirmDelete = async () => {
+        if (!toDelete) return;
+        try {
+          await deletePost(toDelete.id);
+          notify({ message: "Post eliminado.", severity: "success" });
+          setConfirmOpen(false);
+          setToDelete(null);
+          await load();
+        } catch (e) {
+          notify({ message: getApiErrorMessage(e), severity: "error" });
+        }
+      };
+
     return (
       <Stack spacing={2}>
         <Stack direction={{ xs: "column", sm: "row" }} spacing={2} alignItems={{ sm: "center" }}>
@@ -197,7 +211,8 @@ import {
                         <IconButton onClick={() => onEdit(p)} aria-label="editar">
                           <EditIcon />
                         </IconButton>
-                        <IconButton onClick={() => onDelete(p.id)} aria-label="eliminar">
+                        <IconButton onClick={()  => {setToDelete(p);setConfirmOpen(true);}} aria-label="eliminar">
+                        <IconButton onClick={() => askDelete(p)} aria-label="eliminar"><DeleteIcon /></IconButton>
                           <DeleteIcon />
                         </IconButton>
                       </TableCell>
@@ -221,6 +236,16 @@ import {
           onClose={() => setOpen(false)}
           onSubmit={onSubmit}
         />
+
+        <ConfirmDialog
+                open={confirmOpen}
+                title="Confirmar eliminación"
+                description={`¿Eliminar la post "${toDelete?.title || ""}"?`}
+                onCancel={() => { setConfirmOpen(false); setToDelete(null); }}
+                onConfirm={confirmDelete}
+        />
       </Stack>
     );
   }
+
+
